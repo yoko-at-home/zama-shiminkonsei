@@ -75,7 +75,10 @@ export default function Hero() {
           width: "100%",
           height: "100%",
           zIndex: 1,
-          pointerEvents: "none", // クリックイベントを下の要素に通す
+          pointerEvents: "none",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
         <Image
@@ -84,6 +87,7 @@ export default function Hero() {
           fill
           style={{
             objectFit: "cover",
+            objectPosition: "center bottom",
           }}
         />
       </div>
