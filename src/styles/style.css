@@ -30,14 +30,25 @@
 ---------------------------------------------------------------------------*/
 html,body {
 	margin: 0;padding: 0;
-	font-size: 13px;	/*基準となるフォントサイズ。*/
+	font-size: 16px;	/*基準となるフォントサイズを16pxに変更*/
 	overflow-x: hidden;
 }
 
 /*画面幅900px以上の追加指定*/
 @media screen and (min-width:900px) {
 	html, body {
-		font-size: 16px;	/*基準となるフォントサイズ。*/
+		font-size: 18px;	/*基準となるフォントサイズを18pxに変更*/
+	}
+}
+
+/*画面幅400px以下の追加指定*/
+@media screen and (max-width:400px) {
+	html, body {
+		font-size: 16px;	/*モバイルでも16pxを維持*/
+	}
+	/*ロゴ*/
+	#logo {
+		width: 140px;	/*幅*/
 	}
 }
 
@@ -130,7 +141,7 @@ main {
 main h2 {
 	font-family: 'Cinzel', serif;	/*GoogleFontsの指定*/
 	font-weight: normal;	/*太さを標準に*/
-	font-size: 2rem;		/*文字サイズを２倍に*/
+	font-size: 2rem;		/*文字サイズを2remに変更*/
 	letter-spacing: 0.3em;	/*文字間隔を広くとる*/
 	text-indent: 0.3em;		/*上の行のletter-spacingと同じ値をセットする*/
 	text-align: center;		/*テキストをセンタリング*/
@@ -139,18 +150,31 @@ main h2 {
 /*h2タグ内のspanタグ。小文字部分。*/
 main h2 span {
 	display: block;
-	font-size: 0.5rem;		/*文字サイズを親要素の半分に*/
+	font-size: 0.7rem;		/*文字サイズを親要素の0.7倍に変更*/
 	letter-spacing: 0.5em;	/*文字間隔の上書き*/
 	text-indent: 0.5em;		/*上の行のletter-spacingと同じ値をセットする*/
 }
 
 /*h3タグ*/
 main h3 {
-	font-size: 1.3rem;	/*文字サイズ*/
+	font-size: 1.4rem;	/*文字サイズを1.4remに変更*/
 }
 
 /*微調整*/
 p + h3,p + h2 {margin-top: 2em;}
+
+/*画面幅400px以下の追加指定*/
+@media screen and (max-width:400px) {
+	main h2 {
+		font-size: 1.8rem;	/*モバイルでのh2サイズを調整*/
+	}
+	main h2 span {
+		font-size: 0.8rem;	/*モバイルでのspanサイズを調整*/
+	}
+	main h3 {
+		font-size: 1.3rem;	/*モバイルでのh3サイズを調整*/
+	}
+}
 
 /*menubarブロック初期設定
 ---------------------------------------------------------------------------*/
