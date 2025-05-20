@@ -66,6 +66,28 @@ export default function Hero() {
         </div>
       ))}
 
+      {/* フレーム画像 */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: 1,
+          pointerEvents: "none", // クリックイベントを下の要素に通す
+        }}
+      >
+        <Image
+          src="/static/hero/frame.png"
+          alt="フレーム"
+          fill
+          style={{
+            objectFit: "cover",
+          }}
+        />
+      </div>
+
       <div
         style={{
           position: "absolute",
@@ -74,6 +96,7 @@ export default function Hero() {
           transform: "translateX(-50%)",
           display: "flex",
           gap: "0.5rem",
+          zIndex: 2, // フレームの上に表示
         }}
       >
         {slides.map((slide) => (
@@ -111,6 +134,7 @@ export default function Hero() {
           display: "flex",
           justifyContent: "space-between",
           padding: "0 1rem",
+          zIndex: 2, // フレームの上に表示
         }}
       >
         <button
