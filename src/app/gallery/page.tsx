@@ -141,20 +141,24 @@ export default function Gallery() {
             }}
           >
             {filteredItems.map((item) => (
-              <div
+              <button
                 key={item.id}
+                type="button"
                 style={{
                   cursor: "pointer",
                   borderRadius: "0.5rem",
                   overflow: "hidden",
                   boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+                  width: "100%",
+                  textAlign: "left",
+                  border: "none",
+                  padding: 0,
+                  background: "none",
                 }}
                 onClick={() => setSelectedImage(item)}
                 onKeyDown={(e) =>
                   handleKeyDown(e, () => setSelectedImage(item))
                 }
-                role="button"
-                tabIndex={0}
               >
                 <div style={{ position: "relative", aspectRatio: "4/3" }}>
                   <Image
@@ -172,14 +176,15 @@ export default function Gallery() {
                     {item.description}
                   </p>
                 </div>
-              </div>
+              </button>
             ))}
           </div>
         </div>
 
         {/* モーダル */}
         {selectedImage && (
-          <div
+          <button
+            type="button"
             style={{
               position: "fixed",
               top: 0,
@@ -192,19 +197,28 @@ export default function Gallery() {
               justifyContent: "center",
               zIndex: 1000,
               padding: "2rem",
+              border: "none",
+              width: "100%",
+              height: "100%",
             }}
             onClick={() => setSelectedImage(null)}
             onKeyDown={(e) => handleKeyDown(e, () => setSelectedImage(null))}
-            role="button"
-            tabIndex={0}
           >
             <div
               style={{
                 maxWidth: "90vw",
                 maxHeight: "90vh",
                 position: "relative",
+                border: "none",
+                background: "none",
+                padding: 0,
               }}
               onClick={(e) => e.stopPropagation()}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.stopPropagation();
+                }
+              }}
             >
               <button
                 type="button"
@@ -251,7 +265,7 @@ export default function Gallery() {
                 <p style={{ color: "#666" }}>{selectedImage.description}</p>
               </div>
             </div>
-          </div>
+          </button>
         )}
       </section>
     </div>
