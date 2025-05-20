@@ -59,7 +59,7 @@ export default function Hero() {
             alt={slide.alt}
             fill
             style={{
-              objectFit: "contain",
+              objectFit: "cover",
             }}
             priority={index === 0}
           />
@@ -70,7 +70,7 @@ export default function Hero() {
       <div
         style={{
           position: "absolute",
-          top: 0,
+          bottom: -40,
           left: 0,
           width: "100%",
           height: "100%",
