@@ -169,7 +169,7 @@ export default function Gallery() {
                   />
                 </div>
                 <div style={{ padding: "1rem" }}>
-                  <h3 style={{ fontSize: "1.2rem", marginBottom: "0.5rem" }}>
+                  <h3 style={{ fontSize: "1rem", marginBottom: "0.5rem" }}>
                     {item.alt}
                   </h3>
                   <p style={{ color: "#666", fontSize: "0.9rem" }}>
