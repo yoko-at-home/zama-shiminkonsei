@@ -242,13 +242,13 @@ export default function Gallery() {
                 ×
               </button>
               <div
-                style={{ position: "relative", width: "100%", height: "80vh" }}
+                style={{ position: "relative", width: "70vw", height: "80vh" }}
               >
                 <Image
                   src={selectedImage.src}
                   alt={selectedImage.alt}
                   fill
-                  style={{ objectFit: "contain" }}
+                  style={{ objectFit: "cover" }}
                 />
               </div>
               <div
