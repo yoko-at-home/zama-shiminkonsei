@@ -59,7 +59,7 @@ export default function Hero() {
             alt={slide.alt}
             fill
             style={{
-              objectFit: "cover",
+              objectFit: "contain",
             }}
             priority={index === 0}
           />
@@ -78,7 +78,7 @@ export default function Hero() {
           pointerEvents: "none",
           display: "flex",
           alignItems: "center",
-          justifyContent: "center",
+          justifyContent: "base",
         }}
       >
         <Image
