@@ -74,6 +74,9 @@ export default function FAQ() {
                 fontSize: "1rem",
                 fontWeight: 600,
                 textAlign: "left",
+                color: "#777",
+                textDecoration: "none",
+                WebkitTapHighlightColor: "transparent",
               }}
             >
               <span
