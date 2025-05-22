@@ -1,8 +1,51 @@
-"use client";
 import "@/styles/style.css";
-
+import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { ScrollToTop } from "@/components/ScrollToTop";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://zama-shiminkonsei.vercel.app"),
+  title: {
+    default: "座間市民混声合唱団",
+    template: "%s | 座間市民混声合唱団",
+  },
+  description:
+    "座間市民混声合唱団の公式サイトです。定期演奏会や練習会の情報、団員募集など、合唱団の活動についてご紹介しています。",
+  icons: {
+    icon: "/ogp.png",
+    shortcut: "/konsei.svg",
+    apple: "/konsei.svg",
+  },
+  openGraph: {
+    type: "website",
+    locale: "ja_JP",
+    url: "https://zama-shiminkonsei.vercel.app",
+    siteName: "座間市民混声合唱団",
+    images: [
+      {
+        url: "/static/ogp.jpg",
+        width: 1200,
+        height: 630,
+        alt: "座間市民混声合唱団",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "座間市民混声合唱団",
+    description:
+      "座間市民混声合唱団の公式サイトです。定期演奏会や練習会の情報、団員募集など、合唱団の活動についてご紹介しています。",
+    images: ["/static/ogp.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  verification: {
+    google: "your-google-site-verification",
+  },
+};
 
 export default function RootLayout({
   children,
@@ -11,55 +54,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
+      <head>{/* Add any additional head elements here */}</head>
       <body
         style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
       >
         <Header />
         <main>{children}</main>
         <Footer />
-
-        <div
-          style={{
-            position: "fixed",
-            bottom: "8px",
-            right: "8px",
-            zIndex: 50,
-          }}
-        >
-          <button
-            type="button"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            style={{
-              backgroundColor: "#f9f4c6",
-              padding: "1rem",
-              borderRadius: "9999px",
-              boxShadow: "0 10px 15px -3px rgb(0 0 0 / 0.1)",
-              marginRight: "0.5rem",
-            }}
-            aria-label="ページトップへ"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2}
-              stroke="currentColor"
-              style={{
-                width: "1.5rem",
-                height: "1.5rem",
-              }}
-              role="img"
-              aria-hidden="true"
-            >
-              <title>ページトップへ</title>
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4.5 15.75l7.5-7.5 7.5 7.5"
-              />
-            </svg>
-          </button>
-        </div>
+        <ScrollToTop />
       </body>
     </html>
   );
