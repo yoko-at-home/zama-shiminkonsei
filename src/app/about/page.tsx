@@ -55,9 +55,9 @@ export default function About() {
           <div className="photo">
             <div className="relative mx-auto aspect-video object-contain">
               <Image
-                src="/static/image/conductor.png"
+                src="/static/image/conductor.webp"
                 alt=""
-                width={400}
+                width={350}
                 height={350}
                 objectFit="contain"
               />
@@ -74,7 +74,7 @@ export default function About() {
             <Image
               src="/static/image/pianist.jpg"
               alt=""
-              width={350}
+              width={300}
               height={200}
             />
           </div>
