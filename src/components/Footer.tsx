@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { navItems } from "./Navigation";
+import { navItems } from "@/constants/navigation";
 
 export default function Footer() {
   return (
@@ -7,26 +6,28 @@ export default function Footer() {
       <ul id="footermenu">
         {navItems.map(({ href, label }) => (
           <li
+            key={href}
             style={{
               listStyle: "none",
-              marginRight: "15px",
-              whiteSpace: "nowrap",
+              margin: "0.5rem 0",
             }}
-            key={href}
           >
-            <Link style={{ textDecoration: "none" }} href={href}>
-              <span style={{ fontSize: "16px" }}>{label}</span>
-            </Link>
+            <a
+              href={href}
+              style={{
+                color: "#666",
+                textDecoration: "none",
+                fontSize: "0.9rem",
+              }}
+            >
+              {label}
+            </a>
           </li>
         ))}
       </ul>
-
-      <div className="copy">
-        <small>
-          Copyright&copy; <a href="index">座間市民混声合唱団</a> All Rights
-          Reserved.
-        </small>
-      </div>
+      <p style={{ textAlign: "center", fontSize: "0.8rem", color: "#666" }}>
+        © {new Date().getFullYear()} 座間市民混声合唱団
+      </p>
     </footer>
   );
 }
