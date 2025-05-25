@@ -22,7 +22,7 @@ export default function News() {
               transition={{ duration: 0.5 }}
               style={{
                 padding: "1.5rem",
-                backgroundColor: "#fff",
+                // backgroundColor: "#fff",
                 borderRadius: "8px",
                 boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
                 marginBottom: "1rem",
