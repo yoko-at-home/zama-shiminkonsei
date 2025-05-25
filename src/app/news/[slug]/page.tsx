@@ -2,15 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { mockNews } from "@/lib/mockNews.server";
 
-// TODO: 将来的にmicroCMSから取得
+// TODO: 将来的に microCMS から取得
 
-type Props = {
-  params: {
-    slug: string;
-  };
+type PageProps = {
+  params: Promise<{ slug: string }>;
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
   const news = mockNews.find((n) => n.slug === params.slug);
   if (!news) {
     return {
@@ -24,8 +26,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function NewsArticlePage({ params }: Props) {
-  const news = mockNews.find((n) => n.slug === params.slug);
+export default async function Page({ params }: PageProps) {
+  const resolvedParams = await params;
+  const news = mockNews.find((n) => n.slug === resolvedParams.slug);
 
   if (!news) {
     return (
