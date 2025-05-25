@@ -1,36 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-type NewsItem = {
-  id: number;
-  date: string;
-  title: string;
-  content: string;
-};
-
-const newsItems: NewsItem[] = [
-  {
-    id: 1,
-    date: "2024.03.15",
-    title: "30周年記念演奏会のお知らせ",
-    content:
-      "2025年10月20日に海老名市文化会館にて30周年記念演奏会を開催いたします。",
-  },
-  {
-    id: 2,
-    date: "2024.03.01",
-    title: "新メンバー募集",
-    content:
-      "座間市民合唱団では、新メンバーを募集しています。経験は問いません。",
-  },
-  {
-    id: 3,
-    date: "2024.02.15",
-    title: "練習日程の変更",
-    content: "6月の練習日程が変更になりました。",
-  },
-];
+import Link from "next/link";
+import { mockNews } from "@/lib/mockNews.server";
 
 export default function News() {
   return (
@@ -41,21 +13,33 @@ export default function News() {
           <div className="w-20 h-1 bg-yellow-500 mx-auto" />
         </div>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {newsItems.map((item) => (
+          {mockNews.map((item) => (
             <motion.div
               key={item.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+              style={{
+                padding: "1.5rem",
+                backgroundColor: "#fff",
+                borderRadius: "8px",
+                boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+                marginBottom: "1rem",
+              }}
             >
-              <div className="p-6">
-                <div className="text-sm text-gray-500 mb-2">{item.date}</div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600">{item.content}</p>
+              <div>
+                <div className="text-sm text-gray-500">{item.publishedAt}</div>
+                <Link
+                  href={`/news/${item.slug}`}
+                  className="block no-underline text-gray-900 hover:text-gray-900"
+                  style={{ textDecoration: "none" }}
+                >
+                  <h3 className="text-xl font-semibold text-gray-900">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-600">{item.subTitle}</p>
+                </Link>
               </div>
             </motion.div>
           ))}
