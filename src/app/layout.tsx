@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   verification: {
-    google: "your-google-site-verification",
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
 };
 
