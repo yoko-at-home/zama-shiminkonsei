@@ -1,10 +1,53 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { mockNews } from "@/lib/mockNews.server";
+import type { News } from "@/lib/microcms";
 
-export default function News() {
+export default function NewsForTopPage() {
+  const [news, setNews] = useState<News[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const response = await fetch("/api/news/pinned");
+        const data = await response.json();
+
+        if (data.error) {
+          setError(data.error);
+          return;
+        }
+
+        setNews(data.contents);
+      } catch {
+        setError("お知らせの取得に失敗しました");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchNews();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return (
+      <div style={{ padding: "2rem" }}>
+        <p style={{ color: "#666" }}>{error}</p>
+      </div>
+    );
+  }
+
+  if (news.length === 0) {
+    return null;
+  }
+
   return (
     <section className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -13,7 +56,7 @@ export default function News() {
           <div className="w-20 h-1 bg-yellow-500 mx-auto" />
         </div>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {mockNews.map((item) => (
+          {news.map((item) => (
             <motion.div
               key={item.id}
               initial={{ opacity: 0, y: 20 }}
@@ -29,9 +72,11 @@ export default function News() {
               }}
             >
               <div>
-                <div className="text-sm text-gray-500">{item.publishedAt}</div>
+                <div className="text-sm text-gray-500">
+                  {new Date(item.publishedAt).toLocaleDateString("ja-JP")}
+                </div>
                 <Link
-                  href={`/news/${item.slug}`}
+                  href={`/news/${item.id}`}
                   className="block no-underline text-gray-900 hover:text-gray-900"
                   style={{ textDecoration: "none" }}
                 >
