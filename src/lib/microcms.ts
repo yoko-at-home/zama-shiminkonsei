@@ -30,3 +30,20 @@ export type News = {
   subTitle: string;
   content: string;
 };
+
+export type Gallery = {
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  revisedAt: string;
+  alt: string;
+  src: {
+    url: string;
+    height: number;
+    width: number;
+  };
+  category: string;
+  date: string;
+  description?: string;
+};
