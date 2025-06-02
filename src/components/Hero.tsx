@@ -6,8 +6,8 @@ import Image from "next/image";
 const slides = [
   {
     id: 1,
-    src: "/static/hero/3.webp",
-    alt: "未来へ",
+    src: "/static/hero/1.jpg",
+    alt: "",
   },
   {
     id: 2,
@@ -16,8 +16,8 @@ const slides = [
   },
   {
     id: 3,
-    src: "/static/hero/1.webp",
-    alt: "みなとみらいホール",
+    src: "/static/hero/3.webp",
+    alt: "",
   },
 ];
 
