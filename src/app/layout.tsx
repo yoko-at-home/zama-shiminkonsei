@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: "座間市民混声合唱団",
     description:
       "座間市民混声合唱団の公式サイトです。定期演奏会や練習会の情報、団員募集など、合唱団の活動についてご紹介しています。",
-    images: ["/static/ogp.jpg"],
+    images: ["/static/ogp.png"],
   },
   robots: {
     index: true,

@@ -6,18 +6,18 @@ import Image from "next/image";
 const slides = [
   {
     id: 1,
-    src: "/static/hero/1.jpg",
-    alt: "合唱団の練習風景1",
+    src: "/static/hero/3.webp",
+    alt: "未来へ",
   },
   {
     id: 2,
-    src: "/static/hero/2.jpg",
-    alt: "合唱団の練習風景2",
+    src: "/static/hero/2.webp",
+    alt: "ラター・永遠の花",
   },
   {
     id: 3,
-    src: "/static/hero/3.jpg",
-    alt: "合唱団の練習風景3",
+    src: "/static/hero/1.webp",
+    alt: "みなとみらいホール",
   },
 ];
 
