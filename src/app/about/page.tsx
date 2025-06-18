@@ -55,7 +55,7 @@ export default function About() {
           <div className="photo">
             <div className="relative mx-auto aspect-video object-contain">
               <Image
-                src="/static/image/conductor.webp"
+                src="/static/about/conductor.jpg"
                 alt=""
                 width={350}
                 height={350}
@@ -72,7 +72,7 @@ export default function About() {
         <div className="tp-box">
           <div className="photo">
             <Image
-              src="/static/image/pianist.jpg"
+              src="/static/about/pianist.jpg"
               alt=""
               width={300}
               height={200}
