@@ -96,10 +96,11 @@ export default function NewsForTopPage() {
         style={{
           display: "inline-block",
           marginBottom: "2rem",
-          marginLeft: "70%",
+          marginLeft: "65%",
           color: "#9e8c07",
           textDecoration: "none",
           textAlign: "center",
+          whiteSpace: "nowrap",
         }}
       >
         お知らせ一覧→
