@@ -45,7 +45,13 @@ export default function ScheduleForTopPage() {
     .split("T")[0];
 
   return (
-    <div style={{ padding: "2rem", boxShadow: "0 2px 4px rgba(0,0,0,0.1)" }}>
+    <div
+      style={{
+        backgroundColor: "#fff",
+        padding: "2rem",
+        boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+      }}
+    >
       <div className="text-sm text-gray-500">{formattedDate}</div>
       <Link
         href="/schedule"
