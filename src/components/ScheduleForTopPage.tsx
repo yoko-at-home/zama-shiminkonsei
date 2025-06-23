@@ -40,9 +40,14 @@ export default function ScheduleForTopPage() {
     return <div>Loading...</div>;
   }
 
-  const formattedDate = new Date(schedule.updatedAt)
-    .toISOString()
-    .split("T")[0];
+  const formattedDate = new Date(schedule.updatedAt).toLocaleDateString(
+    "ja-JP",
+    {
+      year: "numeric",
+      month: "numeric",
+      day: "numeric",
+    }
+  );
 
   return (
     <div
