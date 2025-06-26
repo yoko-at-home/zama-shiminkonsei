@@ -1,8 +1,20 @@
 import "@/styles/style.css";
 import type { Metadata } from "next";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import dynamic from "next/dynamic";
 import { ScrollToTop } from "@/components/ScrollToTop";
+
+// 動的インポートで重いコンポーネントを遅延読み込み
+const Header = dynamic(() => import("@/components/Header"), {
+  ssr: true,
+  loading: () => (
+    <div style={{ height: "100px", backgroundColor: "#f9f4c6" }} />
+  ),
+});
+
+const Footer = dynamic(() => import("@/components/Footer"), {
+  ssr: true,
+  loading: () => <div style={{ height: "50px", backgroundColor: "#f5f5f5" }} />,
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://zama-shiminkonsei.vercel.app"),
@@ -54,7 +66,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <head>{/* Add any additional head elements here */}</head>
+      <head>
+        <link rel="preload" href="/static/hero/1.jpg" as="image" />
+      </head>
       <body
         style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
       >
