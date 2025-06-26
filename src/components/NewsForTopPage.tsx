@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import Link from "next/link";
 import type { News } from "@/lib/microcms";
 
@@ -52,43 +51,40 @@ export default function NewsForTopPage() {
     <section className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-gray-900">NEWS</h2>
-        {news.map((item) => (
-          <motion.div
+        {news.map((item, index) => (
+          <div
             key={item.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            className="news-item"
             style={{
               padding: "1.5rem",
-              // backgroundColor: "#fff",
               borderRadius: "10px",
               boxShadow: "0 5px 8px rgba(0,0,0,0.1)",
               marginBottom: "1rem",
+              opacity: 0,
+              transform: "translateY(20px)",
+              animation: `fadeInUp 0.5s ease-out ${index * 0.1}s forwards`,
             }}
           >
-            <div>
-              <div className="text-sm">
-                {new Date(item.publishedAt)
-                  .toLocaleDateString("ja-JP", {
-                    year: "numeric",
-                    month: "numeric",
-                    day: "numeric",
-                  })
-                  .replace(/\./g, "/")}
-              </div>
-              <Link
-                href={`/news/${item.id}`}
-                className="block no-underline text-gray-700 hover:text-gray-900"
-                style={{ textDecoration: "none" }}
-              >
-                <h3 className="text-xl font-semibold text-gray-900">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600">{item.subTitle}</p>
-              </Link>
+            <div className="text-sm">
+              {new Date(item.publishedAt)
+                .toLocaleDateString("ja-JP", {
+                  year: "numeric",
+                  month: "numeric",
+                  day: "numeric",
+                })
+                .replace(/\./g, "/")}
             </div>
-          </motion.div>
+            <Link
+              href={`/news/${item.id}`}
+              className="block no-underline text-gray-700 hover:text-gray-900"
+              style={{ textDecoration: "none" }}
+            >
+              <h3 className="text-xl font-semibold text-gray-900">
+                {item.title}
+              </h3>
+              <p className="text-gray-600">{item.subTitle}</p>
+            </Link>
+          </div>
         ))}
       </div>
       <Link

@@ -6,11 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "analyze": "ANALYZE=true yarn build"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
-    "framer-motion": "^12.12.1",
+    "critters": "^0.0.25",
     "html-react-parser": "^5.2.5",
     "microcms-js-sdk": "^3.2.0",
     "next": "15.3.2",
@@ -19,6 +20,7 @@
     "swiper": "^11.2.7"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^15.3.4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

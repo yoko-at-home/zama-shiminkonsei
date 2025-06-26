@@ -78,6 +78,8 @@ export const Navigation = () => {
               position: "fixed",
               inset: 0,
               backgroundColor: "rgba(0, 0, 0, 0.8)",
+              backdropFilter: "blur(4px)",
+              WebkitBackdropFilter: "blur(4px)",
             }}
             onClick={() => setOpened(false)}
             onKeyDown={(e) => {
@@ -93,6 +95,8 @@ export const Navigation = () => {
               position: "fixed",
               inset: 0,
               backgroundColor: "rgba(158, 140, 7, 0.95)",
+              backdropFilter: "blur(8px)",
+              WebkitBackdropFilter: "blur(8px)",
               overflow: "auto",
               textAlign: "center",
               color: "#fff",

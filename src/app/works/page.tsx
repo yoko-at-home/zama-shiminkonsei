@@ -46,7 +46,7 @@ export const PhotoGrid = ({ photos }: PhotoGridProps) => {
 const defaultPhotos = [
   { id: 1, src: "/static/works/1.webp", alt: "落葉松" },
   { id: 2, src: "/static/works/2.webp", alt: "北海道物語" },
-  { id: 2, src: "/static/hero/2.webp", alt: "ラター　永遠の花" },
+  { id: 3, src: "/static/hero/2.webp", alt: "ラター　永遠の花" },
 ];
 
 export default function Works() {

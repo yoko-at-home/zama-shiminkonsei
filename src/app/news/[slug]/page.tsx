@@ -12,12 +12,13 @@ type PageProps = {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   try {
+    const resolvedParams = await params;
     const news = await client.get({
       endpoint: "news",
-      contentId: params.slug,
+      contentId: resolvedParams.slug,
     });
 
     return {

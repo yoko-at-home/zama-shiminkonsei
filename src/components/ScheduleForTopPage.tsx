@@ -37,7 +37,22 @@ export default function ScheduleForTopPage() {
   }
 
   if (!schedule) {
-    return <div>Loading...</div>;
+    return (
+      <div
+        style={{
+          backgroundColor: "#fff",
+          padding: "2rem",
+          boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+          minHeight: "120px",
+        }}
+      >
+        <div className="text-sm text-gray-500">読み込み中...</div>
+        <div className="mt-2">
+          <div className="h-6 bg-gray-200 rounded animate-pulse mb-2" />
+          <div className="h-4 bg-gray-200 rounded animate-pulse" />
+        </div>
+      </div>
+    );
   }
 
   const formattedDate = new Date(schedule.updatedAt).toLocaleDateString(
@@ -55,6 +70,7 @@ export default function ScheduleForTopPage() {
         backgroundColor: "#fff",
         padding: "2rem",
         boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+        minHeight: "120px",
       }}
     >
       <div className="text-sm text-gray-500">{formattedDate}</div>
