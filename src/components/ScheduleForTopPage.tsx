@@ -30,8 +30,18 @@ export default function ScheduleForTopPage() {
 
   if (error) {
     return (
-      <div style={{ padding: "2rem" }}>
-        <p style={{ color: "#666" }}>{error}</p>
+      <div
+        style={{
+          backgroundColor: "#fff",
+          padding: "2rem",
+          boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+          minHeight: "140px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
+        <p style={{ color: "#666", textAlign: "center" }}>{error}</p>
       </div>
     );
   }
@@ -43,11 +53,14 @@ export default function ScheduleForTopPage() {
           backgroundColor: "#fff",
           padding: "2rem",
           boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-          minHeight: "120px",
+          minHeight: "140px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
         }}
       >
         <div className="text-sm text-gray-500">読み込み中...</div>
-        <div className="mt-2">
+        <div>
           <div className="h-6 bg-gray-200 rounded animate-pulse mb-2" />
           <div className="h-4 bg-gray-200 rounded animate-pulse" />
         </div>
@@ -70,7 +83,10 @@ export default function ScheduleForTopPage() {
         backgroundColor: "#fff",
         padding: "2rem",
         boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-        minHeight: "120px",
+        minHeight: "140px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
       }}
     >
       <div className="text-sm text-gray-500">{formattedDate}</div>

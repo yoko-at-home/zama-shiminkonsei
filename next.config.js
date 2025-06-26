@@ -19,6 +19,9 @@ const nextConfig = {
   // バンドル分割の最適化
   webpack: (config, { dev, isServer }) => {
     if (!dev && !isServer) {
+      // 最新ブラウザ向けの最適化
+      config.target = ["web", "es2022"];
+
       config.optimization.splitChunks = {
         chunks: "all",
         cacheGroups: {
@@ -26,6 +29,20 @@ const nextConfig = {
             test: /[\\/]node_modules[\\/]/,
             name: "vendors",
             chunks: "all",
+            priority: 10,
+          },
+          common: {
+            name: "common",
+            minChunks: 2,
+            chunks: "all",
+            priority: 5,
+          },
+          // html-react-parserを別チャンクに分離
+          htmlParser: {
+            test: /[\\/]node_modules[\\/]html-react-parser[\\/]/,
+            name: "html-parser",
+            chunks: "all",
+            priority: 20,
           },
         },
       };

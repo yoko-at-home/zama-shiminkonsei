@@ -44,9 +44,13 @@ export const PhotoGrid = ({ photos }: PhotoGridProps) => {
 };
 
 const defaultPhotos = [
-  { id: 1, src: "/static/works/1.webp", alt: "落葉松" },
-  { id: 2, src: "/static/works/2.webp", alt: "北海道物語" },
-  { id: 3, src: "/static/hero/2.webp", alt: "ラター　永遠の花" },
+  { id: 1, src: "/static/works/1.webp", alt: "混声合唱組曲「落葉松」" },
+  {
+    id: 2,
+    src: "/static/works/2.webp",
+    alt: "混声合唱のためのヒットメドレー「北海道物語",
+  },
+  { id: 3, src: "/static/hero/2.webp", alt: "永遠の花（ラター）" },
 ];
 
 export default function Works() {

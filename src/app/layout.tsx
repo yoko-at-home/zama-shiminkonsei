@@ -67,6 +67,11 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <head>
+        <link
+          rel="preload"
+          as="style"
+          href="/_next/static/css/43e7b61d8dbae259.css"
+        />
         <link rel="preload" href="/static/hero/1.jpg" as="image" />
       </head>
       <body

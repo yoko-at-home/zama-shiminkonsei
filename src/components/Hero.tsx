@@ -6,8 +6,8 @@ import Image from "next/image";
 const slides = [
   {
     id: 1,
-    src: "/static/hero/1.jpg",
-    alt: "",
+    src: "/static/hero/1.webp",
+    alt: "座間市民混声合唱団",
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const slides = [
   {
     id: 3,
     src: "/static/hero/3.webp",
-    alt: "",
+    alt: "演奏会の様子",
   },
 ];
 
@@ -64,6 +64,9 @@ export default function Hero() {
             priority={index === 0}
             loading={index === 0 ? "eager" : "lazy"}
             sizes="100vw"
+            quality={index === 0 ? 85 : 75}
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
           />
         </div>
       ))}
