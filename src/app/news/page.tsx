@@ -11,16 +11,33 @@ export default async function NewsPage() {
   const news = await client.get({
     endpoint: "news",
     queries: {
-      fields: "id,title,subTitle,publishedAt",
+      fields: "id,title,subTitle,publishedAt,revisedAt",
       orders: "-publishedAt",
     },
+  });
+
+  // Sort by the newer of publishedAt or revisedAt
+  const sortedNews = news.contents.sort((a, b) => {
+    const aDate = new Date(
+      Math.max(
+        new Date(a.publishedAt).getTime(),
+        new Date(a.revisedAt).getTime()
+      )
+    );
+    const bDate = new Date(
+      Math.max(
+        new Date(b.publishedAt).getTime(),
+        new Date(b.revisedAt).getTime()
+      )
+    );
+    return bDate.getTime() - aDate.getTime(); // Descending order (newest first)
   });
 
   return (
     <div style={{ padding: "1rem" }}>
       <h1 style={{ marginBottom: "2rem" }}>お知らせ</h1>
       <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-        {news.contents.map((news) => (
+        {sortedNews.map((news) => (
           <article
             key={news.id}
             style={{
