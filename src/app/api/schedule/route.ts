@@ -11,7 +11,7 @@ export async function GET() {
       },
     });
 
-    console.log("API Response:", data);
+    // console.log("API Response:", data);
 
     if (!data) {
       return NextResponse.json(

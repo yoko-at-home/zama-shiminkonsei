@@ -40,22 +40,9 @@ export default function Schedule() {
     return <div>Loading...</div>;
   }
 
-  const formattedDate = new Date(schedule.updatedAt)
-    .toISOString()
-    .split("T")[0];
 
   return (
     <div style={{ padding: "2rem" }}>
-      <time
-        style={{
-          display: "block",
-          fontSize: "0.875rem",
-          color: "#666",
-          marginBottom: "2rem",
-        }}
-      >
-        {formattedDate}
-      </time>
       {schedule.image?.url && (
         <div>
           <Image
