@@ -9,11 +9,26 @@ export const metadata: Metadata = {
 };
 
 export default async function GalleryPage() {
-  const data = await client.get({
-    endpoint: "gallery",
-  });
+  let allGalleries: Gallery[] = [];
+  let offset = 0;
+  const limit = 100;
+  let hasMore = true;
 
-  const galleries = data.contents as Gallery[];
+  while (hasMore) {
+    const data = await client.get({
+      endpoint: "gallery",
+      queries: { offset, limit },
+    });
 
-  return <GalleryClient galleries={galleries} />;
+    const galleries = data.contents as Gallery[];
+    allGalleries = [...allGalleries, ...galleries];
+
+    if (galleries.length < limit) {
+      hasMore = false;
+    } else {
+      offset += limit;
+    }
+  }
+
+  return <GalleryClient galleries={allGalleries} />;
 }
