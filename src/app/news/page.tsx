@@ -63,8 +63,8 @@ export default async function NewsPage() {
                 }}
               >
                 公開: {new Date(news.publishedAt).toLocaleDateString("ja-JP")}
-                {new Date(news.publishedAt).getTime() !==
-                  new Date(news.revisedAt).getTime() &&
+                {new Date(news.publishedAt).toLocaleDateString("ja-JP") !==
+                  new Date(news.revisedAt).toLocaleDateString("ja-JP") &&
                   ` (更新: ${new Date(news.revisedAt).toLocaleDateString(
                     "ja-JP"
                   )})`}
