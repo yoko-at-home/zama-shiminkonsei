@@ -62,7 +62,12 @@ export default async function NewsPage() {
                   marginBottom: "0.3rem",
                 }}
               >
-                {new Date(news.publishedAt).toLocaleDateString("ja-JP")}
+                公開: {new Date(news.publishedAt).toLocaleDateString("ja-JP")}
+                {new Date(news.publishedAt).getTime() !==
+                  new Date(news.revisedAt).getTime() &&
+                  ` (更新: ${new Date(news.revisedAt).toLocaleDateString(
+                    "ja-JP"
+                  )})`}
               </time>
               {news.subTitle && (
                 <p style={{ color: "#333", marginTop: "0.5rem" }}>

@@ -68,14 +68,13 @@ export default function ScheduleForTopPage() {
     );
   }
 
-  const formattedDate = new Date(schedule.updatedAt).toLocaleDateString(
-    "ja-JP",
-    {
-      year: "numeric",
-      month: "numeric",
-      day: "numeric",
-    }
-  );
+
+
+  const updatedDate = new Date(schedule.updatedAt).toLocaleDateString("ja-JP", {
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+  });
 
   return (
     <div
@@ -89,7 +88,9 @@ export default function ScheduleForTopPage() {
         justifyContent: "space-between",
       }}
     >
-      <div className="text-sm text-gray-500">{formattedDate}</div>
+      <div className="text-sm text-gray-500">
+        <p>更新: {updatedDate}</p>
+      </div>
       <Link
         href="/schedule"
         className="block no-underline text-gray-900 hover:text-gray-900"

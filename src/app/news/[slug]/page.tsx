@@ -64,7 +64,12 @@ export default async function Page({ params }: PageProps) {
               marginBottom: "2rem",
             }}
           >
-            {new Date(news.publishedAt).toLocaleDateString("ja-JP")}
+            公開: {new Date(news.publishedAt).toLocaleDateString("ja-JP")}
+            {new Date(news.publishedAt).getTime() !==
+              new Date(news.revisedAt).getTime() &&
+              ` (更新: ${new Date(news.revisedAt).toLocaleDateString(
+                "ja-JP"
+              )})`}
           </time>
           <div
             style={{

@@ -66,13 +66,13 @@ export default function NewsForTopPage() {
             }}
           >
             <div className="text-sm">
-              {new Date(item.publishedAt)
+              {/* {new Date(item.publishedAt)
                 .toLocaleDateString("ja-JP", {
                   year: "numeric",
                   month: "numeric",
                   day: "numeric",
                 })
-                .replace(/\./g, "/")}
+                .replace(/\./g, "/")} */}
             </div>
             <Link
               href={`/news/${item.id}`}
