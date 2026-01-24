@@ -12,15 +12,32 @@ export default function NewsForTopPage() {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const response = await fetch("/api/news/pinned");
-        const data = await response.json();
+        const [pinnedResponse, latestResponse] = await Promise.all([
+          fetch("/api/news/pinned"),
+          fetch("/api/news"),
+        ]);
 
-        if (data.error) {
-          setError(data.error);
+        const pinnedData = await pinnedResponse.json();
+        const latestData = await latestResponse.json();
+
+        if (pinnedData.error || latestData.error) {
+          setError(pinnedData.error || latestData.error);
           return;
         }
 
-        setNews(data.contents);
+        const combinedNews = [...pinnedData.contents];
+        const pinnedIds = new Set(
+          pinnedData.contents.map((item: News) => item.id)
+        );
+
+        for (const item of latestData.contents) {
+          if (combinedNews.length >= 3) break;
+          if (!pinnedIds.has(item.id)) {
+            combinedNews.push(item);
+          }
+        }
+
+        setNews(combinedNews);
       } catch {
         setError("お知らせの取得に失敗しました");
       } finally {
