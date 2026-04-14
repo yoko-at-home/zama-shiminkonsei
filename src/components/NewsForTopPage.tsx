@@ -73,6 +73,7 @@ export default function NewsForTopPage() {
             key={item.id}
             className="news-item"
             style={{
+              backgroundColor: "#ffffff",
               padding: "1.5rem",
               borderRadius: "10px",
               boxShadow: "0 5px 8px rgba(0,0,0,0.1)",
