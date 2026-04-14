@@ -71,6 +71,17 @@ export default async function Page({ params }: PageProps) {
                 "ja-JP"
               )})`}
           </time>
+          {news.subTitle && (
+            <p
+              style={{
+                color: "#333",
+                marginBottom: "1.5rem",
+                lineHeight: 1.6,
+              }}
+            >
+              {news.subTitle}
+            </p>
+          )}
           <div
             style={{
               lineHeight: "1.8",
